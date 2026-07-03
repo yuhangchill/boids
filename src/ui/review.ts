@@ -56,8 +56,8 @@ export class ReviewPanel {
     if (!cfg) return;
     this.root.replaceChildren();
 
-    const intro = el("p", { class: "band-sub" }, [
-      `${cfg.animals.length} animals · axis E("${cfg.axis.positiveWord}") − E("${cfg.axis.negativeWord}") · ${cfg.meta.provider}/${cfg.meta.model}. Click a band to preview it.`,
+    const intro = el("p", { class: "colophon" }, [
+      `${cfg.animals.length} animals · axis E("${cfg.axis.positiveWord}") − E("${cfg.axis.negativeWord}") · ${cfg.meta.provider} / ${cfg.meta.model} · click a band to preview`,
     ]);
     this.root.append(intro);
 
@@ -73,16 +73,17 @@ export class ReviewPanel {
     const swatch = el("div", { class: "band-swatch" });
     swatch.style.background = gradientCss(band);
 
+    const fmt = (v: number) => `${v >= 0 ? "+" : ""}${v.toFixed(3)}`;
     const head = el("div", { class: "band-head" }, [
       swatch,
       el("div", { class: "band-headmeta" }, [
         el("div", { class: "band-title" }, [
-          el("span", { class: "idx" }, [`#${band.index}`]),
+          el("span", { class: "idx" }, [String(band.index + 1).padStart(2, "0")]),
           el("span", { class: "label" }, [band.label]),
           el("span", { class: "count" }, [`${band.members.length} members`]),
         ]),
         el("div", { class: "band-sub" }, [
-          `score ${band.scoreMin.toFixed(3)} … ${band.scoreMax.toFixed(3)} · ${band.gradient.stops.length} stops · ${band.addedRules.length} added rule(s)`,
+          `score ${fmt(band.scoreMin)} … ${fmt(band.scoreMax)} · ${band.gradient.stops.length} stops · ${band.addedRules.length} added rule(s)`,
         ]),
       ]),
     ]);
@@ -191,7 +192,7 @@ export class ReviewPanel {
         stop.pos = Number(pos.value);
         refresh();
       });
-      const del = el("button", { class: "btn btn-sm btn-ghost" }, ["✕"]);
+      const del = el("button", { class: "btn-text" }, ["remove"]);
       del.addEventListener("click", () => {
         band.gradient.stops.splice(i, 1);
         refresh();
@@ -199,7 +200,7 @@ export class ReviewPanel {
       });
       container.append(el("div", { class: "stop" }, [color, nameLabel, pos, del]));
     });
-    const add = el("button", { class: "btn btn-sm btn-ghost" }, ["+ stop"]);
+    const add = el("button", { class: "btn-text" }, ["+ add stop"]);
     add.addEventListener("click", () => {
       band.gradient.stops.push({ name: "grey", hex: "#808080", pos: 0.5 });
       refresh();
@@ -236,7 +237,7 @@ export class ReviewPanel {
 
   private renderRule(band: Band, rule: SelectedRule): HTMLElement {
     const wrap = el("div", { class: "rule" });
-    const remove = el("button", { class: "btn btn-sm btn-ghost" }, ["remove"]);
+    const remove = el("button", { class: "btn-text" }, ["remove"]);
     remove.addEventListener("click", () => {
       band.addedRules = band.addedRules.filter((r) => r.id !== rule.id);
       this.store.markDirty();
@@ -284,7 +285,7 @@ export class ReviewPanel {
     const wrap = el("div", { class: "rule-lib" });
     for (const lib of RULE_LIBRARY) {
       if (present.has(lib.id)) continue;
-      const b = el("button", { class: "btn btn-sm btn-ghost", title: lib.description }, [`+ ${lib.name}`]);
+      const b = el("button", { class: "lib-add", title: lib.description }, [`+ ${lib.name}`]);
       b.addEventListener("click", () => {
         band.addedRules.push({
           id: lib.id,

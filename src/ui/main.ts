@@ -38,15 +38,18 @@ async function boot(): Promise<void> {
   const cfg = store.config!;
   preview.setConfig(cfg);
 
-  // Axis tag + provenance note.
-  $("#axis-tag").textContent = `${cfg.axis.positiveWord} → ${cfg.axis.negativeWord}`;
+  // Axis spine + provenance note.
+  $("#axis-pos").textContent = cfg.axis.positiveWord;
+  $("#axis-neg").textContent = cfg.axis.negativeWord;
   if (cfg.meta.notes) $("#meta-note").textContent = cfg.meta.notes;
 
   // Group selector.
+  const optLabel = (b: (typeof cfg.bands)[number]) =>
+    `${String(b.index + 1).padStart(2, "0")} — ${b.label} · ${b.members.length}`;
   const sel = $<HTMLSelectElement>("#sel-group");
   sel.replaceChildren();
   for (const b of cfg.bands) {
-    sel.append(new Option(`#${b.index} — ${b.label} (${b.members.length})`, String(b.index)));
+    sel.append(new Option(optLabel(b), String(b.index)));
   }
 
   const review = new ReviewPanel(reviewBody, store, {
@@ -59,7 +62,7 @@ async function boot(): Promise<void> {
       if (review.selectedIndex === idx) preview.refreshBand();
       // Keep the group dropdown labels' counts fresh after re-band.
       for (let i = 0; i < cfg.bands.length; i++) {
-        (sel.options[i] as HTMLOptionElement).text = `#${cfg.bands[i].index} — ${cfg.bands[i].label} (${cfg.bands[i].members.length})`;
+        (sel.options[i] as HTMLOptionElement).text = optLabel(cfg.bands[i]);
       }
     },
   });

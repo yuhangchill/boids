@@ -75,6 +75,17 @@ could not recover from code alone. `config.json` is the lock between curation an
 - **`intergroup_bias` is latent in the single-group preview** (steered against a fixed notional
   center) and stored for the eventual multi-group show.
 
+## Review UI design
+
+- **The tool is ink-on-paper**: pure white ground, black type, hairline rules, square corners,
+  no shadows — the review UI deliberately adopts the installation's own lower layer, so the only
+  color on screen is the data itself (band gradient strips, color stops, the species preview).
+- **Type carries all hierarchy**: a neutral grotesque for reading (prefers a locally installed
+  ABC Diatype, falls back to Helvetica Neue — no webfont, the tool stays fully offline), a mono
+  for every measured value, and one uppercase letterspaced micro-label voice for section heads.
+  The five bands read as a numbered catalogue (01–05) under a full-width beloved→reviled axis
+  spine; each band's gradient renders as a print-production color bar at full measure.
+
 ## Determinism & preview
 
 - **Fixed unit timestep + seeded mulberry32 PRNG.** Per-group preview seed =

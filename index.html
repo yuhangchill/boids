@@ -9,9 +9,8 @@
   <body>
     <header class="topbar">
       <div class="brand">
-        <span class="dot"></span>
         <h1>Boids</h1>
-        <span class="tag" id="axis-tag">beloved → reviled</span>
+        <span class="brand-sub">curation &amp; preview — v1</span>
       </div>
       <div class="topbar-actions">
         <span id="meta-note" class="meta-note"></span>
@@ -19,6 +18,12 @@
         <button id="btn-lock" class="btn btn-ghost">Lock</button>
       </div>
     </header>
+
+    <div class="axis-spine" aria-label="Semantic axis">
+      <span id="axis-pos" class="axis-word">beloved</span>
+      <span class="axis-line" aria-hidden="true"></span>
+      <span id="axis-neg" class="axis-word">reviled</span>
+    </div>
 
     <main class="layout">
       <section id="review" class="review" aria-label="Curation review">
@@ -28,7 +33,7 @@
       <section class="preview" aria-label="Live preview">
         <div class="preview-controls">
           <label class="ctl">
-            Group
+            <span class="ctl-name">Group</span>
             <select id="sel-group"></select>
           </label>
           <div class="look-toggle" role="group" aria-label="Layer look">
@@ -36,7 +41,7 @@
             <button id="look-species" class="look-btn">species look</button>
           </div>
           <div class="ctl-row">
-            <button id="btn-play" class="btn btn-sm">Pause</button>
+            <button id="btn-play" class="btn btn-sm btn-ghost">Pause</button>
             <button id="btn-reseed" class="btn btn-sm btn-ghost">Reseed</button>
             <span id="fps" class="fps">—</span>
           </div>
