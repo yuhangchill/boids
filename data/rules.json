@@ -1,0 +1,74 @@
+{
+  "note": "Small, Reynolds-level library of ADDITIONAL abstract local rules. The core three (separation, alignment, cohesion) are iron laws, always on, identical for every group, and are NOT listed here. Each rule below is a simple local formula about how an agent treats its neighbors; distinctive movement (milling, schooling, scattering, swarming) must EMERGE from these, never be scripted. 'embedText' is what gets embedded for proximity matching against a group's relationship/motion words. 'params' are seeds; all human-adjustable.",
+  "core": [
+    { "id": "separation", "name": "Separation", "description": "Steer to avoid crowding local neighbors." },
+    { "id": "alignment", "name": "Alignment", "description": "Steer toward the average heading of local neighbors." },
+    { "id": "cohesion", "name": "Cohesion", "description": "Steer toward the average position of local neighbors." }
+  ],
+  "library": [
+    {
+      "id": "selective_coupling",
+      "name": "Selective coupling",
+      "emergent": "sub-flocks / cliques",
+      "description": "Align and cohere only with the subset of neighbors that share your kind; ignore others for social forces. Sub-flocks and cliques emerge.",
+      "embedText": "selective coupling: members bond only with their own kind, forming cliques, factions, tribal sub-flocks; clannish, cliquish, factional, tribal grouping",
+      "params": { "kinds": 3, "selectivity": 0.85 }
+    },
+    {
+      "id": "asymmetric_influence",
+      "name": "Asymmetric influence",
+      "emergent": "leadership / hierarchy",
+      "description": "Weight some neighbors more than others by a fixed per-agent rank; high-rank agents influence many, low-rank few. Leadership and hierarchy emerge.",
+      "embedText": "asymmetric influence: some individuals lead and dominate while others follow and submit; hierarchical, ranked, led, dominant, submissive ordering",
+      "params": { "strength": 0.6, "leaderFraction": 0.15 }
+    },
+    {
+      "id": "phase_synchronization",
+      "name": "Phase synchronization",
+      "emergent": "collective pulsing (fireflies)",
+      "description": "Each agent carries an internal phase; nudge it toward the average phase of neighbors (Kuramoto coupling). Collective synchrony emerges and gently modulates speed.",
+      "embedText": "phase synchronization: internal rhythms fall into unison like fireflies flashing together; synchronized, coordinated, in unison, harmonious, orderly, disciplined",
+      "params": { "coupling": 0.5, "frequency": 0.08, "frequencySpread": 0.02, "speedModulation": 0.3 }
+    },
+    {
+      "id": "density_targeting",
+      "name": "Density targeting",
+      "emergent": "tight-knit vs dispersed",
+      "description": "Seek a preferred amount of local crowding: cohere harder when below the target neighbor count, separate harder when above it.",
+      "embedText": "density targeting: members prefer a particular closeness, either tight-knit and huddled or spread out and dispersed; dense, crowded, clustered versus sparse, spread out, loose",
+      "params": { "target": 8, "strength": 0.5 }
+    },
+    {
+      "id": "tangential_bias",
+      "name": "Tangential bias",
+      "emergent": "milling / circling",
+      "description": "Add a force perpendicular to the cohesion vector, so agents orbit the local center of mass. Milling and circling emerge.",
+      "embedText": "tangential bias: the group circles and mills around its own center, wheeling in a slow vortex; milling, circling, wheeling, swirling, orbiting motion",
+      "params": { "strength": 0.6, "sign": 1 }
+    },
+    {
+      "id": "startle_scatter",
+      "name": "Startle / scatter",
+      "emergent": "erratic scattering",
+      "description": "When local density spikes above a threshold, apply a transient strong repulsion and speed burst that decays over time. Erratic scattering emerges.",
+      "embedText": "startle and scatter: a sudden fright bursts the group apart in erratic panic then it regathers; skittish, jittery, nervous, frenzied, chaotic, erratic scattering",
+      "params": { "densityThreshold": 14, "impulse": 2.0, "decay": 0.9 }
+    },
+    {
+      "id": "independence",
+      "name": "Independence",
+      "emergent": "solitary drift",
+      "description": "Attenuate all neighbor coupling toward zero, so agents largely ignore one another and drift on their own headings. Solitary behavior emerges.",
+      "embedText": "independence: individuals go their own way, aloof and self-reliant, barely acknowledging others; solitary, lonely, isolated, independent, detached, antisocial",
+      "params": { "attenuation": 0.6 }
+    },
+    {
+      "id": "intergroup_bias",
+      "name": "Inter-group bias",
+      "emergent": "attraction / repulsion to another group",
+      "description": "Steer toward or away from the centroid of a DIFFERENT group. Latent in a single-group preview; stored for the eventual multi-group show.",
+      "embedText": "inter-group bias: this group is drawn toward or driven away from another group; territorial, competitive, rivalrous between groups, or cooperative mixing across groups",
+      "params": { "sign": -1, "strength": 0.4 }
+    }
+  ]
+}

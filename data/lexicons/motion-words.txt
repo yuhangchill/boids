@@ -1,0 +1,51 @@
+# Motion / action words (SECONDARY input; a cross-check on the emergent result).
+# These inform emergent tendency and parameter seeding, but must NOT become a
+# scripted animation layer. Movement should emerge from the rules; these words
+# only nudge weights/params and let the human sanity-check the outcome.
+darting
+zipping
+flitting
+gliding
+soaring
+cruising
+drifting
+floating
+wafting
+scurrying
+scuttling
+scrambling
+undulating
+rippling
+weaving
+slithering
+snaking
+hovering
+suspended
+wheeling
+circling
+orbiting
+spiraling
+pulsing
+throbbing
+creeping
+crawling
+plodding
+trudging
+bobbing
+swaying
+swirling
+churning
+jerky
+twitchy
+erratic
+frantic
+smooth
+languid
+sluggish
+graceful
+nimble
+darty
+bounding
+leaping
+diving
+plunging

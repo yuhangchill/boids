@@ -1,0 +1,350 @@
+# Candidate animals for the beloved->reviled axis.
+# A broad, natural, fully open list of common animals. No exclusion filter, no
+# forced category diversity, no recognizability weighting. Mollusks and parasites
+# are deliberately included. One common English name per line; '#' lines ignored.
+# Let the axis organize whatever is here; keep the human thumb off the scale.
+
+# --- companion & domestic ---
+dog
+cat
+puppy
+kitten
+horse
+pony
+donkey
+mule
+cow
+calf
+ox
+bull
+goat
+sheep
+lamb
+pig
+piglet
+rabbit
+hamster
+guinea pig
+gerbil
+ferret
+chicken
+rooster
+hen
+chick
+duck
+duckling
+goose
+turkey
+pigeon
+dove
+canary
+parakeet
+parrot
+cockatoo
+
+# --- charismatic wild mammals ---
+lion
+tiger
+leopard
+cheetah
+jaguar
+panther
+cougar
+lynx
+bobcat
+wolf
+fox
+coyote
+bear
+panda
+polar bear
+grizzly bear
+koala
+sloth
+elephant
+rhinoceros
+hippopotamus
+giraffe
+zebra
+gorilla
+chimpanzee
+orangutan
+gibbon
+baboon
+monkey
+lemur
+kangaroo
+wallaby
+wombat
+platypus
+deer
+elk
+moose
+reindeer
+antelope
+gazelle
+bison
+buffalo
+camel
+llama
+alpaca
+otter
+beaver
+raccoon
+squirrel
+chipmunk
+hedgehog
+badger
+skunk
+opossum
+armadillo
+anteater
+meerkat
+mongoose
+weasel
+mink
+wolverine
+
+# --- rodents & small mammals often disliked ---
+mouse
+rat
+mole
+vole
+shrew
+bat
+naked mole rat
+porcupine
+
+# --- marine mammals ---
+dolphin
+whale
+orca
+narwhal
+beluga
+manatee
+dugong
+seal
+sea lion
+walrus
+porpoise
+
+# --- birds ---
+eagle
+hawk
+falcon
+osprey
+owl
+vulture
+condor
+raven
+crow
+magpie
+sparrow
+robin
+bluebird
+cardinal
+finch
+swallow
+swift
+wren
+starling
+blackbird
+woodpecker
+hummingbird
+kingfisher
+heron
+egret
+crane
+stork
+flamingo
+pelican
+albatross
+seagull
+gull
+tern
+puffin
+penguin
+ostrich
+emu
+peacock
+swan
+loon
+kiwi
+toucan
+hornbill
+quail
+partridge
+pheasant
+
+# --- reptiles ---
+snake
+python
+boa
+cobra
+viper
+rattlesnake
+anaconda
+lizard
+gecko
+iguana
+chameleon
+komodo dragon
+monitor lizard
+skink
+turtle
+tortoise
+crocodile
+alligator
+caiman
+
+# --- amphibians ---
+frog
+toad
+tadpole
+salamander
+newt
+axolotl
+caecilian
+
+# --- fish ---
+goldfish
+koi
+clownfish
+angelfish
+guppy
+betta
+salmon
+trout
+tuna
+cod
+mackerel
+sardine
+anchovy
+herring
+bass
+carp
+catfish
+eel
+shark
+great white shark
+hammerhead shark
+stingray
+manta ray
+swordfish
+marlin
+barracuda
+piranha
+pufferfish
+seahorse
+lionfish
+anglerfish
+lamprey
+hagfish
+
+# --- mollusks ---
+octopus
+squid
+cuttlefish
+nautilus
+snail
+slug
+sea slug
+clam
+oyster
+mussel
+scallop
+conch
+whelk
+abalone
+limpet
+
+# --- crustaceans ---
+crab
+lobster
+crayfish
+shrimp
+prawn
+krill
+barnacle
+woodlouse
+pill bug
+
+# --- arachnids ---
+spider
+tarantula
+black widow
+scorpion
+tick
+mite
+harvestman
+
+# --- insects ---
+bee
+bumblebee
+wasp
+hornet
+ant
+fire ant
+termite
+butterfly
+moth
+caterpillar
+ladybug
+beetle
+dung beetle
+firefly
+dragonfly
+damselfly
+grasshopper
+cricket
+locust
+mantis
+cockroach
+housefly
+fruit fly
+mosquito
+gnat
+midge
+horsefly
+flea
+louse
+bedbug
+aphid
+cicada
+stick insect
+silverfish
+earwig
+weevil
+maggot
+grub
+
+# --- other invertebrates ---
+jellyfish
+sea anemone
+coral
+hydra
+starfish
+sea urchin
+sea cucumber
+sand dollar
+earthworm
+nightcrawler
+leech
+centipede
+millipede
+slug worm
+
+# --- parasites & near-parasites ---
+tapeworm
+roundworm
+hookworm
+pinworm
+flatworm
+fluke
+liver fluke
+ringworm
+botfly
+screwworm
+guinea worm
+scabies mite
+bot maggot

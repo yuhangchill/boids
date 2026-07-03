@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Boids — curation &amp; preview</title>
+    <link rel="stylesheet" href="/src/ui/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <h1>Boids</h1>
+        <span class="tag" id="axis-tag">beloved → reviled</span>
+      </div>
+      <div class="topbar-actions">
+        <span id="meta-note" class="meta-note"></span>
+        <button id="btn-save" class="btn">Save config.json</button>
+        <button id="btn-lock" class="btn btn-ghost">Lock</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section id="review" class="review" aria-label="Curation review">
+        <div id="review-body"><p class="loading">Loading config.json…</p></div>
+      </section>
+
+      <section class="preview" aria-label="Live preview">
+        <div class="preview-controls">
+          <label class="ctl">
+            Group
+            <select id="sel-group"></select>
+          </label>
+          <div class="look-toggle" role="group" aria-label="Layer look">
+            <button id="look-particle" class="look-btn active">black dots on a pure white background</button>
+            <button id="look-species" class="look-btn">species look</button>
+          </div>
+          <div class="ctl-row">
+            <button id="btn-play" class="btn btn-sm">Pause</button>
+            <button id="btn-reseed" class="btn btn-sm btn-ghost">Reseed</button>
+            <span id="fps" class="fps">—</span>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="stage" width="720" height="720"></canvas>
+        </div>
+        <p id="preview-caption" class="caption"></p>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+    <script type="module" src="/src/ui/main.ts"></script>
+  </body>
+</html>

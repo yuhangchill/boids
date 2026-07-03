@@ -1,0 +1,71 @@
+# Group-relationship words (PRIMARY input to word->rule mapping).
+# How members relate to one another and how groups relate. These are the primary
+# handles for composing per-group rules; they are matched by embedding proximity
+# both to a group's concept (to pick the group's traits) and to the rule library
+# (to select/weight rules). Kept abstract and relational, never animal-specific.
+tight-knit
+close-knit
+cohesive
+gregarious
+sociable
+clustered
+dense
+crowded
+huddled
+scattered
+dispersed
+sparse
+spread out
+loose
+solitary
+lonely
+isolated
+independent
+self-reliant
+detached
+aloof
+antisocial
+synchronized
+coordinated
+in unison
+harmonious
+orderly
+disciplined
+chaotic
+disorderly
+unruly
+frenzied
+restless
+skittish
+jittery
+nervous
+wary
+hierarchical
+ranked
+led
+dominant
+submissive
+leaderless
+egalitarian
+democratic
+territorial
+competitive
+rivalrous
+cooperative
+collaborative
+mutual
+cliquish
+factional
+tribal
+clannish
+swarming
+schooling
+flocking
+herding
+milling
+circling
+wheeling
+fluid
+adaptable
+rigid
+fixed

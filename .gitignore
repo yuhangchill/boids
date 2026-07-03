@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-tsc/
+.env
+.env.local
+# Embedding cache: real on-disk cache (not localStorage), safe to delete/regenerate.
+.cache/embeddings/
+*.log
+.DS_Store
+# Personal local permissions, not shared config.
+.claude/settings.local.json

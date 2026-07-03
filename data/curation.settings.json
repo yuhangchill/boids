@@ -1,0 +1,24 @@
+{
+  "note": "Curation-time knobs. Endpoints swap the axis in one line. All embedded strings are English (the cultural lens). Core sim params are identical for every group by design — per-group distinctiveness comes only from added rules.",
+  "endpoints": { "positiveWord": "beloved", "negativeWord": "reviled" },
+  "seed": 20260703,
+  "bands": {
+    "count": 5,
+    "labels": ["Beloved", "Cherished", "Liminal", "Shunned", "Reviled"],
+    "rangePercentiles": [2, 98]
+  },
+  "gradient": { "minStops": 2, "maxStops": 7, "angle": 135, "candidatePool": 40 },
+  "traits": { "relationshipPerGroup": 6, "motionPerGroup": 4 },
+  "rules": { "maxPerGroup": 3, "minProximity": 0.12, "minWeight": 0.2 },
+  "core": {
+    "world": { "width": 1000, "height": 1000, "wrap": true },
+    "timestep": 1.0,
+    "boidCount": 220,
+    "maxSpeed": 3.2,
+    "minSpeed": 1.1,
+    "maxForce": 0.09,
+    "perceptionRadius": 62,
+    "separationRadius": 22,
+    "weights": { "separation": 1.7, "alignment": 1.0, "cohesion": 0.9 }
+  }
+}
