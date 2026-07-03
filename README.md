@@ -1,6 +1,6 @@
 # Boids
 
-An installation for VISAP that treats a language model's embedding space as a proxy for
+An installation that treats a language model's embedding space as a proxy for
 collective human perception, ranking animals from **beloved to reviled** and letting each group
 flock with identical core logic — so the divergence in the viewer's own feeling becomes the
 exhibit. See [`PROJECT_BRIEF.md`](PROJECT_BRIEF.md) for the full intent and
