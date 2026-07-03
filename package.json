@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Boids - a VISAP installation. Curation pipeline (beloved->reviled axis) + rough live flocking preview.",
+  "description": "Boids - an installation. Curation pipeline (beloved->reviled axis) + rough live flocking preview.",
   "scripts": {
     "curate": "tsx src/curation/curate.ts",
     "dev": "vite",

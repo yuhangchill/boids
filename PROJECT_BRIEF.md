@@ -3,7 +3,7 @@
 > Authoritative source of intent for this project. Read this in full before writing or
 > changing code. Code cannot reconstruct the reasoning below; keep this file and
 > DECISIONS.md current as the single source of truth for *why*, not just *what*.
-> Target build agent: Fable Claude Code. Target venue: VISAP (paper + artwork).
+> Target build agent: Fable Claude Code. Target venue: a visualization + art venue (paper + artwork).
 > Name: "Boids", spelled WITH the trailing s.
 
 ---
