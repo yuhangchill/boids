@@ -1,0 +1,2315 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-04T08:31:40.682Z",
+  "locked": false,
+  "embedding": {
+    "provider": "openai",
+    "model": "text-embedding-3-large",
+    "dim": 3072
+  },
+  "axis": {
+    "positive": "beloved",
+    "negative": "reviled"
+  },
+  "animals": [
+    {
+      "name": "butterfly",
+      "score": 0.1729
+    },
+    {
+      "name": "honeybee",
+      "score": 0.1715
+    },
+    {
+      "name": "monarch butterfly",
+      "score": 0.1706
+    },
+    {
+      "name": "bluebird",
+      "score": 0.1552
+    },
+    {
+      "name": "kitten",
+      "score": 0.1543
+    },
+    {
+      "name": "elephant",
+      "score": 0.1462
+    },
+    {
+      "name": "ladybug",
+      "score": 0.1456
+    },
+    {
+      "name": "puppy",
+      "score": 0.145
+    },
+    {
+      "name": "panda",
+      "score": 0.1436
+    },
+    {
+      "name": "hummingbird",
+      "score": 0.1422
+    },
+    {
+      "name": "blue whale",
+      "score": 0.1412
+    },
+    {
+      "name": "koala",
+      "score": 0.1402
+    },
+    {
+      "name": "dolphin",
+      "score": 0.1389
+    },
+    {
+      "name": "chickadee",
+      "score": 0.1329
+    },
+    {
+      "name": "bee",
+      "score": 0.1327
+    },
+    {
+      "name": "polar bear",
+      "score": 0.1303
+    },
+    {
+      "name": "bear",
+      "score": 0.1218
+    },
+    {
+      "name": "guinea pig",
+      "score": 0.1206
+    },
+    {
+      "name": "pony",
+      "score": 0.1197
+    },
+    {
+      "name": "bumblebee",
+      "score": 0.1187
+    },
+    {
+      "name": "lemur",
+      "score": 0.1169
+    },
+    {
+      "name": "otter",
+      "score": 0.1162
+    },
+    {
+      "name": "penguin",
+      "score": 0.1162
+    },
+    {
+      "name": "goldfish",
+      "score": 0.1161
+    },
+    {
+      "name": "whale",
+      "score": 0.1159
+    },
+    {
+      "name": "axolotl",
+      "score": 0.1158
+    },
+    {
+      "name": "boa",
+      "score": 0.1118
+    },
+    {
+      "name": "antelope",
+      "score": 0.1116
+    },
+    {
+      "name": "koi",
+      "score": 0.1106
+    },
+    {
+      "name": "tiger",
+      "score": 0.1099
+    },
+    {
+      "name": "gazelle",
+      "score": 0.1093
+    },
+    {
+      "name": "piglet",
+      "score": 0.1046
+    },
+    {
+      "name": "albatross",
+      "score": 0.1045
+    },
+    {
+      "name": "deer",
+      "score": 0.1042
+    },
+    {
+      "name": "cheetah",
+      "score": 0.102
+    },
+    {
+      "name": "guppy",
+      "score": 0.1011
+    },
+    {
+      "name": "pufferfish",
+      "score": 0.1005
+    },
+    {
+      "name": "giraffe",
+      "score": 0.1003
+    },
+    {
+      "name": "hippopotamus",
+      "score": 0.1002
+    },
+    {
+      "name": "manatee",
+      "score": 0.0994
+    },
+    {
+      "name": "okapi",
+      "score": 0.099
+    },
+    {
+      "name": "seahorse",
+      "score": 0.0985
+    },
+    {
+      "name": "leopard",
+      "score": 0.0984
+    },
+    {
+      "name": "sea turtle",
+      "score": 0.0981
+    },
+    {
+      "name": "firefly",
+      "score": 0.0972
+    },
+    {
+      "name": "pelican",
+      "score": 0.097
+    },
+    {
+      "name": "tortoise",
+      "score": 0.096
+    },
+    {
+      "name": "fawn",
+      "score": 0.0936
+    },
+    {
+      "name": "cat",
+      "score": 0.0935
+    },
+    {
+      "name": "tuna",
+      "score": 0.0934
+    },
+    {
+      "name": "swan",
+      "score": 0.0927
+    },
+    {
+      "name": "meerkat",
+      "score": 0.0921
+    },
+    {
+      "name": "stork",
+      "score": 0.0921
+    },
+    {
+      "name": "canary",
+      "score": 0.0917
+    },
+    {
+      "name": "alpaca",
+      "score": 0.0916
+    },
+    {
+      "name": "wombat",
+      "score": 0.0909
+    },
+    {
+      "name": "gorilla",
+      "score": 0.0898
+    },
+    {
+      "name": "orangutan",
+      "score": 0.0896
+    },
+    {
+      "name": "mole",
+      "score": 0.0896
+    },
+    {
+      "name": "anteater",
+      "score": 0.0892
+    },
+    {
+      "name": "octopus",
+      "score": 0.0889
+    },
+    {
+      "name": "fruit bat",
+      "score": 0.0879
+    },
+    {
+      "name": "sheep",
+      "score": 0.0876
+    },
+    {
+      "name": "horse",
+      "score": 0.0872
+    },
+    {
+      "name": "gecko",
+      "score": 0.0868
+    },
+    {
+      "name": "great white shark",
+      "score": 0.0864
+    },
+    {
+      "name": "sponge",
+      "score": 0.0852
+    },
+    {
+      "name": "beaver",
+      "score": 0.0838
+    },
+    {
+      "name": "lamb",
+      "score": 0.0828
+    },
+    {
+      "name": "dragonfly",
+      "score": 0.0827
+    },
+    {
+      "name": "seal",
+      "score": 0.0824
+    },
+    {
+      "name": "anaconda",
+      "score": 0.0824
+    },
+    {
+      "name": "puffin",
+      "score": 0.0819
+    },
+    {
+      "name": "hamster",
+      "score": 0.0816
+    },
+    {
+      "name": "toucan",
+      "score": 0.0813
+    },
+    {
+      "name": "goat",
+      "score": 0.0811
+    },
+    {
+      "name": "duckling",
+      "score": 0.0811
+    },
+    {
+      "name": "dugong",
+      "score": 0.0804
+    },
+    {
+      "name": "panther",
+      "score": 0.0801
+    },
+    {
+      "name": "tree frog",
+      "score": 0.08
+    },
+    {
+      "name": "hedgehog",
+      "score": 0.0792
+    },
+    {
+      "name": "ferret",
+      "score": 0.0791
+    },
+    {
+      "name": "chimpanzee",
+      "score": 0.0782
+    },
+    {
+      "name": "humpback whale",
+      "score": 0.0782
+    },
+    {
+      "name": "jaguar",
+      "score": 0.0779
+    },
+    {
+      "name": "wallaby",
+      "score": 0.0779
+    },
+    {
+      "name": "porpoise",
+      "score": 0.0779
+    },
+    {
+      "name": "dog",
+      "score": 0.0778
+    },
+    {
+      "name": "bison",
+      "score": 0.0778
+    },
+    {
+      "name": "black bear",
+      "score": 0.077
+    },
+    {
+      "name": "moth",
+      "score": 0.077
+    },
+    {
+      "name": "wildebeest",
+      "score": 0.0762
+    },
+    {
+      "name": "heron",
+      "score": 0.0743
+    },
+    {
+      "name": "eel",
+      "score": 0.0741
+    },
+    {
+      "name": "marlin",
+      "score": 0.074
+    },
+    {
+      "name": "kiwi",
+      "score": 0.0737
+    },
+    {
+      "name": "coral",
+      "score": 0.0735
+    },
+    {
+      "name": "cougar",
+      "score": 0.0734
+    },
+    {
+      "name": "nightingale",
+      "score": 0.0729
+    },
+    {
+      "name": "walrus",
+      "score": 0.0724
+    },
+    {
+      "name": "buffalo",
+      "score": 0.0718
+    },
+    {
+      "name": "zebra",
+      "score": 0.0715
+    },
+    {
+      "name": "lion",
+      "score": 0.0711
+    },
+    {
+      "name": "nautilus",
+      "score": 0.0701
+    },
+    {
+      "name": "orca",
+      "score": 0.0698
+    },
+    {
+      "name": "narwhal",
+      "score": 0.0694
+    },
+    {
+      "name": "tapir",
+      "score": 0.0689
+    },
+    {
+      "name": "moose",
+      "score": 0.0684
+    },
+    {
+      "name": "turtle",
+      "score": 0.0682
+    },
+    {
+      "name": "marmot",
+      "score": 0.0677
+    },
+    {
+      "name": "finch",
+      "score": 0.0671
+    },
+    {
+      "name": "chick",
+      "score": 0.0671
+    },
+    {
+      "name": "beetle",
+      "score": 0.0671
+    },
+    {
+      "name": "clownfish",
+      "score": 0.0664
+    },
+    {
+      "name": "salamander",
+      "score": 0.0657
+    },
+    {
+      "name": "arctic fox",
+      "score": 0.0653
+    },
+    {
+      "name": "mongoose",
+      "score": 0.0651
+    },
+    {
+      "name": "flamingo",
+      "score": 0.0647
+    },
+    {
+      "name": "chameleon",
+      "score": 0.0642
+    },
+    {
+      "name": "hermit crab",
+      "score": 0.0641
+    },
+    {
+      "name": "manta ray",
+      "score": 0.0638
+    },
+    {
+      "name": "pigeon",
+      "score": 0.063
+    },
+    {
+      "name": "ox",
+      "score": 0.0629
+    },
+    {
+      "name": "grasshopper",
+      "score": 0.0629
+    },
+    {
+      "name": "platypus",
+      "score": 0.0628
+    },
+    {
+      "name": "cuckoo",
+      "score": 0.0628
+    },
+    {
+      "name": "damselfly",
+      "score": 0.0628
+    },
+    {
+      "name": "kangaroo",
+      "score": 0.0622
+    },
+    {
+      "name": "caterpillar",
+      "score": 0.062
+    },
+    {
+      "name": "condor",
+      "score": 0.0612
+    },
+    {
+      "name": "sea lion",
+      "score": 0.0611
+    },
+    {
+      "name": "armadillo",
+      "score": 0.061
+    },
+    {
+      "name": "wolf",
+      "score": 0.061
+    },
+    {
+      "name": "cuttlefish",
+      "score": 0.061
+    },
+    {
+      "name": "garden snail",
+      "score": 0.061
+    },
+    {
+      "name": "kingfisher",
+      "score": 0.0597
+    },
+    {
+      "name": "chicken",
+      "score": 0.0593
+    },
+    {
+      "name": "robin",
+      "score": 0.0587
+    },
+    {
+      "name": "mouse",
+      "score": 0.0575
+    },
+    {
+      "name": "sea anemone",
+      "score": 0.057
+    },
+    {
+      "name": "dove",
+      "score": 0.0569
+    },
+    {
+      "name": "bald eagle",
+      "score": 0.0569
+    },
+    {
+      "name": "ant",
+      "score": 0.0563
+    },
+    {
+      "name": "parrot",
+      "score": 0.0556
+    },
+    {
+      "name": "starfish",
+      "score": 0.0554
+    },
+    {
+      "name": "cockatoo",
+      "score": 0.0553
+    },
+    {
+      "name": "chipmunk",
+      "score": 0.0552
+    },
+    {
+      "name": "camel",
+      "score": 0.0548
+    },
+    {
+      "name": "dingo",
+      "score": 0.0531
+    },
+    {
+      "name": "black widow",
+      "score": 0.0531
+    },
+    {
+      "name": "grizzly bear",
+      "score": 0.0526
+    },
+    {
+      "name": "rabbit",
+      "score": 0.0522
+    },
+    {
+      "name": "mantis",
+      "score": 0.052
+    },
+    {
+      "name": "egret",
+      "score": 0.0519
+    },
+    {
+      "name": "catfish",
+      "score": 0.0519
+    },
+    {
+      "name": "periwinkle",
+      "score": 0.0518
+    },
+    {
+      "name": "squirrel",
+      "score": 0.0516
+    },
+    {
+      "name": "shark",
+      "score": 0.0513
+    },
+    {
+      "name": "cardinal",
+      "score": 0.0511
+    },
+    {
+      "name": "frog",
+      "score": 0.0511
+    },
+    {
+      "name": "peacock",
+      "score": 0.0504
+    },
+    {
+      "name": "elk",
+      "score": 0.0503
+    },
+    {
+      "name": "mosquito",
+      "score": 0.0502
+    },
+    {
+      "name": "harvestman",
+      "score": 0.0497
+    },
+    {
+      "name": "cricket",
+      "score": 0.0496
+    },
+    {
+      "name": "lynx",
+      "score": 0.0491
+    },
+    {
+      "name": "tadpole",
+      "score": 0.0487
+    },
+    {
+      "name": "turkey",
+      "score": 0.0485
+    },
+    {
+      "name": "salmon",
+      "score": 0.0484
+    },
+    {
+      "name": "owl",
+      "score": 0.0483
+    },
+    {
+      "name": "woodpecker",
+      "score": 0.0483
+    },
+    {
+      "name": "macaw",
+      "score": 0.0481
+    },
+    {
+      "name": "tarantula",
+      "score": 0.0481
+    },
+    {
+      "name": "porcupine",
+      "score": 0.0476
+    },
+    {
+      "name": "goose",
+      "score": 0.0469
+    },
+    {
+      "name": "eagle",
+      "score": 0.0469
+    },
+    {
+      "name": "jellyfish",
+      "score": 0.0452
+    },
+    {
+      "name": "donkey",
+      "score": 0.0447
+    },
+    {
+      "name": "sparrow",
+      "score": 0.0446
+    },
+    {
+      "name": "newt",
+      "score": 0.0446
+    },
+    {
+      "name": "pig",
+      "score": 0.0445
+    },
+    {
+      "name": "partridge",
+      "score": 0.0445
+    },
+    {
+      "name": "snail",
+      "score": 0.0438
+    },
+    {
+      "name": "earthworm",
+      "score": 0.0438
+    },
+    {
+      "name": "coyote",
+      "score": 0.0432
+    },
+    {
+      "name": "fox",
+      "score": 0.0413
+    },
+    {
+      "name": "trout",
+      "score": 0.0411
+    },
+    {
+      "name": "anglerfish",
+      "score": 0.0411
+    },
+    {
+      "name": "lobster",
+      "score": 0.0411
+    },
+    {
+      "name": "termite",
+      "score": 0.0407
+    },
+    {
+      "name": "head louse",
+      "score": 0.0402
+    },
+    {
+      "name": "toad",
+      "score": 0.0401
+    },
+    {
+      "name": "hen",
+      "score": 0.04
+    },
+    {
+      "name": "bedbug",
+      "score": 0.0399
+    },
+    {
+      "name": "shrimp",
+      "score": 0.0398
+    },
+    {
+      "name": "mule",
+      "score": 0.0389
+    },
+    {
+      "name": "ostrich",
+      "score": 0.0389
+    },
+    {
+      "name": "sardine",
+      "score": 0.0384
+    },
+    {
+      "name": "sea cucumber",
+      "score": 0.0383
+    },
+    {
+      "name": "cow",
+      "score": 0.0375
+    },
+    {
+      "name": "llama",
+      "score": 0.0374
+    },
+    {
+      "name": "sandworm",
+      "score": 0.0366
+    },
+    {
+      "name": "gerbil",
+      "score": 0.0363
+    },
+    {
+      "name": "sea slug",
+      "score": 0.0359
+    },
+    {
+      "name": "sloth",
+      "score": 0.0353
+    },
+    {
+      "name": "mallard",
+      "score": 0.0353
+    },
+    {
+      "name": "pheasant",
+      "score": 0.0349
+    },
+    {
+      "name": "boar",
+      "score": 0.0348
+    },
+    {
+      "name": "wren",
+      "score": 0.0348
+    },
+    {
+      "name": "osprey",
+      "score": 0.0348
+    },
+    {
+      "name": "oyster",
+      "score": 0.0345
+    },
+    {
+      "name": "swallow",
+      "score": 0.0343
+    },
+    {
+      "name": "spider",
+      "score": 0.0342
+    },
+    {
+      "name": "bass",
+      "score": 0.0337
+    },
+    {
+      "name": "bat",
+      "score": 0.0334
+    },
+    {
+      "name": "crane",
+      "score": 0.0331
+    },
+    {
+      "name": "falcon",
+      "score": 0.0329
+    },
+    {
+      "name": "iguana",
+      "score": 0.0328
+    },
+    {
+      "name": "mussel",
+      "score": 0.0327
+    },
+    {
+      "name": "squid",
+      "score": 0.0316
+    },
+    {
+      "name": "cockle",
+      "score": 0.0312
+    },
+    {
+      "name": "barnacle",
+      "score": 0.0303
+    },
+    {
+      "name": "warthog",
+      "score": 0.0296
+    },
+    {
+      "name": "tapeworm",
+      "score": 0.0292
+    },
+    {
+      "name": "anchovy",
+      "score": 0.0289
+    },
+    {
+      "name": "flatworm",
+      "score": 0.0283
+    },
+    {
+      "name": "seagull",
+      "score": 0.028
+    },
+    {
+      "name": "emu",
+      "score": 0.028
+    },
+    {
+      "name": "cicada",
+      "score": 0.0278
+    },
+    {
+      "name": "rhinoceros",
+      "score": 0.0275
+    },
+    {
+      "name": "perch",
+      "score": 0.0263
+    },
+    {
+      "name": "reindeer",
+      "score": 0.0256
+    },
+    {
+      "name": "echidna",
+      "score": 0.025
+    },
+    {
+      "name": "tick",
+      "score": 0.0247
+    },
+    {
+      "name": "duck",
+      "score": 0.0246
+    },
+    {
+      "name": "swordfish",
+      "score": 0.0239
+    },
+    {
+      "name": "python",
+      "score": 0.0235
+    },
+    {
+      "name": "calf",
+      "score": 0.0234
+    },
+    {
+      "name": "skunk",
+      "score": 0.023
+    },
+    {
+      "name": "crocodile",
+      "score": 0.022
+    },
+    {
+      "name": "wolf spider",
+      "score": 0.0219
+    },
+    {
+      "name": "blue jay",
+      "score": 0.0212
+    },
+    {
+      "name": "lizard",
+      "score": 0.0203
+    },
+    {
+      "name": "cobra",
+      "score": 0.02
+    },
+    {
+      "name": "housefly",
+      "score": 0.0196
+    },
+    {
+      "name": "hammerhead",
+      "score": 0.0194
+    },
+    {
+      "name": "starling",
+      "score": 0.0187
+    },
+    {
+      "name": "slug",
+      "score": 0.0186
+    },
+    {
+      "name": "piranha",
+      "score": 0.0185
+    },
+    {
+      "name": "hornet",
+      "score": 0.0185
+    },
+    {
+      "name": "mackerel",
+      "score": 0.0178
+    },
+    {
+      "name": "lark",
+      "score": 0.0173
+    },
+    {
+      "name": "alligator",
+      "score": 0.0169
+    },
+    {
+      "name": "scorpion",
+      "score": 0.0165
+    },
+    {
+      "name": "cod",
+      "score": 0.0156
+    },
+    {
+      "name": "fly",
+      "score": 0.0152
+    },
+    {
+      "name": "gibbon",
+      "score": 0.0148
+    },
+    {
+      "name": "yak",
+      "score": 0.0148
+    },
+    {
+      "name": "hyena",
+      "score": 0.0144
+    },
+    {
+      "name": "krill",
+      "score": 0.0139
+    },
+    {
+      "name": "clam",
+      "score": 0.0138
+    },
+    {
+      "name": "mite",
+      "score": 0.0133
+    },
+    {
+      "name": "opossum",
+      "score": 0.0128
+    },
+    {
+      "name": "nightcrawler",
+      "score": 0.0126
+    },
+    {
+      "name": "carp",
+      "score": 0.0125
+    },
+    {
+      "name": "flea",
+      "score": 0.0124
+    },
+    {
+      "name": "grub",
+      "score": 0.0116
+    },
+    {
+      "name": "dung beetle",
+      "score": 0.0113
+    },
+    {
+      "name": "fluke",
+      "score": 0.0109
+    },
+    {
+      "name": "fire ant",
+      "score": 0.0108
+    },
+    {
+      "name": "liver fluke",
+      "score": 0.0093
+    },
+    {
+      "name": "bot fly",
+      "score": 0.0091
+    },
+    {
+      "name": "snake",
+      "score": 0.0073
+    },
+    {
+      "name": "crab",
+      "score": 0.0071
+    },
+    {
+      "name": "aphid",
+      "score": 0.0046
+    },
+    {
+      "name": "vole",
+      "score": 0.0038
+    },
+    {
+      "name": "pike",
+      "score": 0.0033
+    },
+    {
+      "name": "barracuda",
+      "score": 0.0033
+    },
+    {
+      "name": "stink bug",
+      "score": 0.0031
+    },
+    {
+      "name": "red fox",
+      "score": 0.0023
+    },
+    {
+      "name": "limpet",
+      "score": 0.0023
+    },
+    {
+      "name": "prawn",
+      "score": 0.002
+    },
+    {
+      "name": "badger",
+      "score": 0.0015
+    },
+    {
+      "name": "gnat",
+      "score": -0.0001
+    },
+    {
+      "name": "weevil",
+      "score": -0.001
+    },
+    {
+      "name": "guinea worm",
+      "score": -0.001
+    },
+    {
+      "name": "raccoon",
+      "score": -0.0016
+    },
+    {
+      "name": "stingray",
+      "score": -0.0018
+    },
+    {
+      "name": "roundworm",
+      "score": -0.0021
+    },
+    {
+      "name": "vampire bat",
+      "score": -0.0022
+    },
+    {
+      "name": "pinworm",
+      "score": -0.0022
+    },
+    {
+      "name": "scabies mite",
+      "score": -0.0039
+    },
+    {
+      "name": "gharial",
+      "score": -0.0045
+    },
+    {
+      "name": "centipede",
+      "score": -0.0045
+    },
+    {
+      "name": "hawk",
+      "score": -0.0046
+    },
+    {
+      "name": "horsefly",
+      "score": -0.0067
+    },
+    {
+      "name": "millipede",
+      "score": -0.0101
+    },
+    {
+      "name": "jackal",
+      "score": -0.0107
+    },
+    {
+      "name": "herring",
+      "score": -0.0109
+    },
+    {
+      "name": "lamprey",
+      "score": -0.0109
+    },
+    {
+      "name": "magpie",
+      "score": -0.0118
+    },
+    {
+      "name": "viper",
+      "score": -0.0132
+    },
+    {
+      "name": "woodlouse",
+      "score": -0.0152
+    },
+    {
+      "name": "whelk",
+      "score": -0.0166
+    },
+    {
+      "name": "crayfish",
+      "score": -0.0173
+    },
+    {
+      "name": "rooster",
+      "score": -0.0176
+    },
+    {
+      "name": "silverfish",
+      "score": -0.0176
+    },
+    {
+      "name": "komodo dragon",
+      "score": -0.0177
+    },
+    {
+      "name": "midge",
+      "score": -0.0195
+    },
+    {
+      "name": "scallop",
+      "score": -0.0195
+    },
+    {
+      "name": "wasp",
+      "score": -0.0199
+    },
+    {
+      "name": "sea urchin",
+      "score": -0.0199
+    },
+    {
+      "name": "hookworm",
+      "score": -0.0204
+    },
+    {
+      "name": "louse",
+      "score": -0.0217
+    },
+    {
+      "name": "crow",
+      "score": -0.0224
+    },
+    {
+      "name": "skink",
+      "score": -0.0231
+    },
+    {
+      "name": "hagfish",
+      "score": -0.0256
+    },
+    {
+      "name": "leech",
+      "score": -0.0264
+    },
+    {
+      "name": "shrew",
+      "score": -0.0271
+    },
+    {
+      "name": "maggot",
+      "score": -0.0274
+    },
+    {
+      "name": "brown rat",
+      "score": -0.0305
+    },
+    {
+      "name": "locust",
+      "score": -0.0345
+    },
+    {
+      "name": "rat",
+      "score": -0.0346
+    },
+    {
+      "name": "rattlesnake",
+      "score": -0.0364
+    },
+    {
+      "name": "chigger",
+      "score": -0.0366
+    },
+    {
+      "name": "raven",
+      "score": -0.0367
+    },
+    {
+      "name": "vulture",
+      "score": -0.0436
+    },
+    {
+      "name": "earwig",
+      "score": -0.0515
+    },
+    {
+      "name": "ringworm",
+      "score": -0.0535
+    },
+    {
+      "name": "cockroach",
+      "score": -0.0623
+    },
+    {
+      "name": "quail",
+      "score": -0.0656
+    },
+    {
+      "name": "sewer rat",
+      "score": -0.0776
+    },
+    {
+      "name": "ragworm",
+      "score": -0.0806
+    }
+  ],
+  "bandCuts": [
+    0.0858,
+    0.061,
+    0.0379,
+    0.012
+  ],
+  "groups": [
+    {
+      "index": 0,
+      "label": "I",
+      "members": [
+        "butterfly",
+        "honeybee",
+        "monarch butterfly",
+        "bluebird",
+        "kitten",
+        "elephant",
+        "ladybug",
+        "puppy",
+        "panda",
+        "hummingbird",
+        "blue whale",
+        "koala",
+        "dolphin",
+        "chickadee",
+        "bee",
+        "polar bear",
+        "bear",
+        "guinea pig",
+        "pony",
+        "bumblebee",
+        "lemur",
+        "otter",
+        "penguin",
+        "goldfish",
+        "whale",
+        "axolotl",
+        "boa",
+        "antelope",
+        "koi",
+        "tiger",
+        "gazelle",
+        "piglet",
+        "albatross",
+        "deer",
+        "cheetah",
+        "guppy",
+        "pufferfish",
+        "giraffe",
+        "hippopotamus",
+        "manatee",
+        "okapi",
+        "seahorse",
+        "leopard",
+        "sea turtle",
+        "firefly",
+        "pelican",
+        "tortoise",
+        "fawn",
+        "cat",
+        "tuna",
+        "swan",
+        "meerkat",
+        "stork",
+        "canary",
+        "alpaca",
+        "wombat",
+        "gorilla",
+        "orangutan",
+        "mole",
+        "anteater",
+        "octopus",
+        "fruit bat",
+        "sheep",
+        "horse",
+        "gecko",
+        "great white shark"
+      ],
+      "gradient": [
+        {
+          "at": 0,
+          "name": "butter",
+          "hex": "#ffff81",
+          "anchor": "butterfly"
+        },
+        {
+          "at": 0.14285714285714285,
+          "name": "canary",
+          "hex": "#fdff63",
+          "anchor": "hummingbird"
+        },
+        {
+          "at": 0.2857142857142857,
+          "name": "butter yellow",
+          "hex": "#fffd74",
+          "anchor": "bumblebee"
+        },
+        {
+          "at": 0.42857142857142855,
+          "name": "poo",
+          "hex": "#8f7303",
+          "anchor": "koi"
+        },
+        {
+          "at": 0.5714285714285714,
+          "name": "camel",
+          "hex": "#c69f59",
+          "anchor": "giraffe"
+        },
+        {
+          "at": 0.7142857142857143,
+          "name": "turtle green",
+          "hex": "#75b84f",
+          "anchor": "tortoise"
+        },
+        {
+          "at": 0.8571428571428571,
+          "name": "banana",
+          "hex": "#ffff7e",
+          "anchor": "gorilla"
+        },
+        {
+          "at": 1,
+          "name": "white",
+          "hex": "#ffffff",
+          "anchor": "great white shark"
+        }
+      ],
+      "traits": {
+        "relationship": [
+          {
+            "word": "sociable",
+            "affinity": 0.016
+          },
+          {
+            "word": "cooperative",
+            "affinity": 0.015
+          },
+          {
+            "word": "aloof",
+            "affinity": 0.014
+          },
+          {
+            "word": "gregarious",
+            "affinity": 0.011
+          },
+          {
+            "word": "independent",
+            "affinity": 0.01
+          }
+        ],
+        "motion": [
+          {
+            "word": "soaring",
+            "affinity": 0.009
+          },
+          {
+            "word": "floating",
+            "affinity": 0.006
+          },
+          {
+            "word": "drifting",
+            "affinity": 0.004
+          }
+        ]
+      },
+      "rules": [
+        {
+          "id": "density-targeting",
+          "weight": 0.85,
+          "params": {
+            "target": 5,
+            "gain": 1.05
+          }
+        },
+        {
+          "id": "independence",
+          "weight": 0.67,
+          "params": {
+            "attenuation": 0.72,
+            "wander": 0.35
+          }
+        },
+        {
+          "id": "selective-coupling",
+          "weight": 0.3,
+          "params": {
+            "kinds": 3,
+            "crossCouple": 0.08
+          }
+        }
+      ],
+      "sim": {
+        "count": 192,
+        "maxSpeed": 88,
+        "seed": 1937233269
+      }
+    },
+    {
+      "index": 1,
+      "label": "II",
+      "members": [
+        "sponge",
+        "beaver",
+        "lamb",
+        "dragonfly",
+        "seal",
+        "anaconda",
+        "puffin",
+        "hamster",
+        "toucan",
+        "goat",
+        "duckling",
+        "dugong",
+        "panther",
+        "tree frog",
+        "hedgehog",
+        "ferret",
+        "chimpanzee",
+        "humpback whale",
+        "jaguar",
+        "wallaby",
+        "porpoise",
+        "dog",
+        "bison",
+        "black bear",
+        "moth",
+        "wildebeest",
+        "heron",
+        "eel",
+        "marlin",
+        "kiwi",
+        "coral",
+        "cougar",
+        "nightingale",
+        "walrus",
+        "buffalo",
+        "zebra",
+        "lion",
+        "nautilus",
+        "orca",
+        "narwhal",
+        "tapir",
+        "moose",
+        "turtle",
+        "marmot",
+        "finch",
+        "chick",
+        "beetle",
+        "clownfish",
+        "salamander",
+        "arctic fox",
+        "mongoose",
+        "flamingo",
+        "chameleon",
+        "hermit crab",
+        "manta ray",
+        "pigeon",
+        "ox",
+        "grasshopper",
+        "platypus",
+        "cuckoo",
+        "damselfly",
+        "kangaroo",
+        "caterpillar",
+        "condor",
+        "sea lion"
+      ],
+      "gradient": [
+        {
+          "at": 0,
+          "name": "squash",
+          "hex": "#f2ab15",
+          "anchor": "sponge"
+        },
+        {
+          "at": 0.14285714285714285,
+          "name": "grape",
+          "hex": "#6c3461",
+          "anchor": "goat"
+        },
+        {
+          "at": 0.2857142857142857,
+          "name": "jade",
+          "hex": "#1fa774",
+          "anchor": "jaguar"
+        },
+        {
+          "at": 0.42857142857142855,
+          "name": "lichen",
+          "hex": "#8fb67b",
+          "anchor": "eel"
+        },
+        {
+          "at": 0.5714285714285714,
+          "name": "navy",
+          "hex": "#01153e",
+          "anchor": "nautilus"
+        },
+        {
+          "at": 0.7142857142857143,
+          "name": "booger",
+          "hex": "#9bb53c",
+          "anchor": "beetle"
+        },
+        {
+          "at": 0.8571428571428571,
+          "name": "pea",
+          "hex": "#a4bf20",
+          "anchor": "pigeon"
+        },
+        {
+          "at": 1,
+          "name": "sea",
+          "hex": "#3c9992",
+          "anchor": "sea lion"
+        }
+      ],
+      "traits": {
+        "relationship": [
+          {
+            "word": "chaotic",
+            "affinity": 0.007
+          },
+          {
+            "word": "unified",
+            "affinity": 0.006
+          },
+          {
+            "word": "territorial",
+            "affinity": 0.005
+          },
+          {
+            "word": "cooperative",
+            "affinity": 0.005
+          },
+          {
+            "word": "independent",
+            "affinity": 0.004
+          }
+        ],
+        "motion": [
+          {
+            "word": "bounding",
+            "affinity": 0.012
+          },
+          {
+            "word": "soaring",
+            "affinity": 0.01
+          },
+          {
+            "word": "surging",
+            "affinity": 0.009
+          }
+        ]
+      },
+      "rules": [
+        {
+          "id": "density-targeting",
+          "weight": 0.85,
+          "params": {
+            "target": 5,
+            "gain": 1
+          }
+        },
+        {
+          "id": "selective-coupling",
+          "weight": 0.8,
+          "params": {
+            "kinds": 3,
+            "crossCouple": 0.08
+          }
+        },
+        {
+          "id": "startle-scatter",
+          "weight": 0.3,
+          "params": {
+            "threshold": 3,
+            "burst": 2.7,
+            "decay": 0.4
+          }
+        }
+      ],
+      "sim": {
+        "count": 190,
+        "maxSpeed": 89,
+        "seed": 4106666162
+      }
+    },
+    {
+      "index": 2,
+      "label": "III",
+      "members": [
+        "armadillo",
+        "wolf",
+        "cuttlefish",
+        "garden snail",
+        "kingfisher",
+        "chicken",
+        "robin",
+        "mouse",
+        "sea anemone",
+        "dove",
+        "bald eagle",
+        "ant",
+        "parrot",
+        "starfish",
+        "cockatoo",
+        "chipmunk",
+        "camel",
+        "dingo",
+        "black widow",
+        "grizzly bear",
+        "rabbit",
+        "mantis",
+        "egret",
+        "catfish",
+        "periwinkle",
+        "squirrel",
+        "shark",
+        "cardinal",
+        "frog",
+        "peacock",
+        "elk",
+        "mosquito",
+        "harvestman",
+        "cricket",
+        "lynx",
+        "tadpole",
+        "turkey",
+        "salmon",
+        "owl",
+        "woodpecker",
+        "macaw",
+        "tarantula",
+        "porcupine",
+        "goose",
+        "eagle",
+        "jellyfish",
+        "donkey",
+        "sparrow",
+        "newt",
+        "pig",
+        "partridge",
+        "snail",
+        "earthworm",
+        "coyote",
+        "fox",
+        "trout",
+        "anglerfish",
+        "lobster",
+        "termite",
+        "head louse",
+        "toad",
+        "hen",
+        "bedbug",
+        "shrimp",
+        "mule",
+        "ostrich",
+        "sardine",
+        "sea cucumber"
+      ],
+      "gradient": [
+        {
+          "at": 0,
+          "name": "avocado",
+          "hex": "#90b134",
+          "anchor": "armadillo"
+        },
+        {
+          "at": 0.14285714285714285,
+          "name": "robin's egg",
+          "hex": "#6dedfd",
+          "anchor": "bald eagle"
+        },
+        {
+          "at": 0.2857142857142857,
+          "name": "brown grey",
+          "hex": "#8d8468",
+          "anchor": "grizzly bear"
+        },
+        {
+          "at": 0.42857142857142855,
+          "name": "peacock blue",
+          "hex": "#016795",
+          "anchor": "peacock"
+        },
+        {
+          "at": 0.5714285714285714,
+          "name": "ocre",
+          "hex": "#c69c04",
+          "anchor": "owl"
+        },
+        {
+          "at": 0.7142857142857143,
+          "name": "turtle green",
+          "hex": "#75b84f",
+          "anchor": "newt"
+        },
+        {
+          "at": 0.8571428571428571,
+          "name": "salmon",
+          "hex": "#ff796c",
+          "anchor": "lobster"
+        },
+        {
+          "at": 1,
+          "name": "seaweed",
+          "hex": "#18d17b",
+          "anchor": "sea cucumber"
+        }
+      ],
+      "traits": {
+        "relationship": [
+          {
+            "word": "scattered",
+            "affinity": 0.008
+          },
+          {
+            "word": "skittish",
+            "affinity": 0.006
+          },
+          {
+            "word": "dispersed",
+            "affinity": 0.006
+          },
+          {
+            "word": "independent",
+            "affinity": 0.006
+          },
+          {
+            "word": "competitive",
+            "affinity": 0.004
+          }
+        ],
+        "motion": [
+          {
+            "word": "weaving",
+            "affinity": 0.004
+          },
+          {
+            "word": "scurrying",
+            "affinity": 0.004
+          },
+          {
+            "word": "twitching",
+            "affinity": 0.003
+          }
+        ]
+      },
+      "rules": [
+        {
+          "id": "density-targeting",
+          "weight": 0.85,
+          "params": {
+            "target": 8,
+            "gain": 0.55
+          }
+        },
+        {
+          "id": "startle-scatter",
+          "weight": 0.54,
+          "params": {
+            "threshold": 5,
+            "burst": 2.9,
+            "decay": 0.7
+          }
+        },
+        {
+          "id": "selective-coupling",
+          "weight": 0.3,
+          "params": {
+            "kinds": 3,
+            "crossCouple": 0.14
+          }
+        }
+      ],
+      "sim": {
+        "count": 196,
+        "maxSpeed": 113,
+        "seed": 4202741842
+      }
+    },
+    {
+      "index": 3,
+      "label": "IV",
+      "members": [
+        "cow",
+        "llama",
+        "sandworm",
+        "gerbil",
+        "sea slug",
+        "sloth",
+        "mallard",
+        "pheasant",
+        "boar",
+        "wren",
+        "osprey",
+        "oyster",
+        "swallow",
+        "spider",
+        "bass",
+        "bat",
+        "crane",
+        "falcon",
+        "iguana",
+        "mussel",
+        "squid",
+        "cockle",
+        "barnacle",
+        "warthog",
+        "tapeworm",
+        "anchovy",
+        "flatworm",
+        "seagull",
+        "emu",
+        "cicada",
+        "rhinoceros",
+        "perch",
+        "reindeer",
+        "echidna",
+        "tick",
+        "duck",
+        "swordfish",
+        "python",
+        "calf",
+        "skunk",
+        "crocodile",
+        "wolf spider",
+        "blue jay",
+        "lizard",
+        "cobra",
+        "housefly",
+        "hammerhead",
+        "starling",
+        "slug",
+        "piranha",
+        "hornet",
+        "mackerel",
+        "lark",
+        "alligator",
+        "scorpion",
+        "cod",
+        "fly",
+        "gibbon",
+        "yak",
+        "hyena",
+        "krill",
+        "clam",
+        "mite",
+        "opossum",
+        "nightcrawler",
+        "carp",
+        "flea"
+      ],
+      "gradient": [
+        {
+          "at": 0,
+          "name": "camel",
+          "hex": "#c69f59",
+          "anchor": "cow"
+        },
+        {
+          "at": 0.14285714285714285,
+          "name": "fern",
+          "hex": "#63a950",
+          "anchor": "wren"
+        },
+        {
+          "at": 0.2857142857142857,
+          "name": "mushroom",
+          "hex": "#ba9e88",
+          "anchor": "mussel"
+        },
+        {
+          "at": 0.42857142857142855,
+          "name": "umber",
+          "hex": "#b26400",
+          "anchor": "emu"
+        },
+        {
+          "at": 0.5714285714285714,
+          "name": "fawn",
+          "hex": "#cfaf7b",
+          "anchor": "calf"
+        },
+        {
+          "at": 0.7142857142857143,
+          "name": "stormy blue",
+          "hex": "#507b9c",
+          "anchor": "starling"
+        },
+        {
+          "at": 0.8571428571428571,
+          "name": "grape",
+          "hex": "#6c3461",
+          "anchor": "gibbon"
+        },
+        {
+          "at": 1,
+          "name": "pea",
+          "hex": "#a4bf20",
+          "anchor": "flea"
+        }
+      ],
+      "traits": {
+        "relationship": [
+          {
+            "word": "scattered",
+            "affinity": 0.009
+          },
+          {
+            "word": "schooling",
+            "affinity": 0.009
+          },
+          {
+            "word": "synchronized",
+            "affinity": 0.007
+          },
+          {
+            "word": "coordinated",
+            "affinity": 0.007
+          },
+          {
+            "word": "cohesive",
+            "affinity": 0.007
+          }
+        ],
+        "motion": [
+          {
+            "word": "scuttling",
+            "affinity": 0.015
+          },
+          {
+            "word": "writhing",
+            "affinity": 0.013
+          },
+          {
+            "word": "gliding",
+            "affinity": 0.012
+          }
+        ]
+      },
+      "rules": [
+        {
+          "id": "selective-coupling",
+          "weight": 0.85,
+          "params": {
+            "kinds": 3,
+            "crossCouple": 0.11
+          }
+        },
+        {
+          "id": "density-targeting",
+          "weight": 0.51,
+          "params": {
+            "target": 4,
+            "gain": 0.75
+          }
+        },
+        {
+          "id": "tangential-bias",
+          "weight": 0.3,
+          "params": {
+            "chirality": 1
+          }
+        }
+      ],
+      "sim": {
+        "count": 194,
+        "maxSpeed": 101,
+        "seed": 545494601
+      }
+    },
+    {
+      "index": 4,
+      "label": "V",
+      "members": [
+        "grub",
+        "dung beetle",
+        "fluke",
+        "fire ant",
+        "liver fluke",
+        "bot fly",
+        "snake",
+        "crab",
+        "aphid",
+        "vole",
+        "pike",
+        "barracuda",
+        "stink bug",
+        "red fox",
+        "limpet",
+        "prawn",
+        "badger",
+        "gnat",
+        "weevil",
+        "guinea worm",
+        "raccoon",
+        "stingray",
+        "roundworm",
+        "vampire bat",
+        "pinworm",
+        "scabies mite",
+        "gharial",
+        "centipede",
+        "hawk",
+        "horsefly",
+        "millipede",
+        "jackal",
+        "herring",
+        "lamprey",
+        "magpie",
+        "viper",
+        "woodlouse",
+        "whelk",
+        "crayfish",
+        "rooster",
+        "silverfish",
+        "komodo dragon",
+        "midge",
+        "scallop",
+        "wasp",
+        "sea urchin",
+        "hookworm",
+        "louse",
+        "crow",
+        "skink",
+        "hagfish",
+        "leech",
+        "shrew",
+        "maggot",
+        "brown rat",
+        "locust",
+        "rat",
+        "rattlesnake",
+        "chigger",
+        "raven",
+        "vulture",
+        "earwig",
+        "ringworm",
+        "cockroach",
+        "quail",
+        "sewer rat",
+        "ragworm"
+      ],
+      "gradient": [
+        {
+          "at": 0,
+          "name": "grape",
+          "hex": "#6c3461",
+          "anchor": "grub"
+        },
+        {
+          "at": 0.14285714285714285,
+          "name": "vomit",
+          "hex": "#a2a415",
+          "anchor": "vole"
+        },
+        {
+          "at": 0.2857142857142857,
+          "name": "diarrhea",
+          "hex": "#9f8303",
+          "anchor": "guinea worm"
+        },
+        {
+          "at": 0.42857142857142855,
+          "name": "sky",
+          "hex": "#82cafc",
+          "anchor": "hawk"
+        },
+        {
+          "at": 0.5714285714285714,
+          "name": "asparagus",
+          "hex": "#77ab56",
+          "anchor": "crayfish"
+        },
+        {
+          "at": 0.7142857142857143,
+          "name": "toupe",
+          "hex": "#c7ac7d",
+          "anchor": "louse"
+        },
+        {
+          "at": 0.8571428571428571,
+          "name": "raspberry",
+          "hex": "#b00149",
+          "anchor": "rattlesnake"
+        },
+        {
+          "at": 1,
+          "name": "rust",
+          "hex": "#a83c09",
+          "anchor": "ragworm"
+        }
+      ],
+      "traits": {
+        "relationship": [
+          {
+            "word": "swarming",
+            "affinity": 0.033
+          },
+          {
+            "word": "restless",
+            "affinity": 0.015
+          },
+          {
+            "word": "disorderly",
+            "affinity": 0.01
+          },
+          {
+            "word": "scattered",
+            "affinity": 0.007
+          },
+          {
+            "word": "clustered",
+            "affinity": 0.006
+          }
+        ],
+        "motion": [
+          {
+            "word": "writhing",
+            "affinity": 0.039
+          },
+          {
+            "word": "scuttling",
+            "affinity": 0.028
+          },
+          {
+            "word": "creeping",
+            "affinity": 0.024
+          }
+        ]
+      },
+      "rules": [
+        {
+          "id": "density-targeting",
+          "weight": 0.85,
+          "params": {
+            "target": 12,
+            "gain": 0.9
+          }
+        },
+        {
+          "id": "startle-scatter",
+          "weight": 0.64,
+          "params": {
+            "threshold": 5,
+            "burst": 2.5,
+            "decay": 0.85
+          }
+        },
+        {
+          "id": "tangential-bias",
+          "weight": 0.3,
+          "params": {
+            "chirality": 1
+          }
+        }
+      ],
+      "sim": {
+        "count": 194,
+        "maxSpeed": 134,
+        "seed": 858052989
+      }
+    }
+  ]
+}

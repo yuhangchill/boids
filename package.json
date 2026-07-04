@@ -1,0 +1,20 @@
+{
+  "name": "boids",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Curation pipeline and reference preview for Boids: rank animals along a beloved-to-reviled embedding axis, band them into five groups, and derive per-group flocking character. Curation-time embeddings via OpenAI; the show reads config.json offline.",
+  "scripts": {
+    "curate": "tsx src/curate.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "26.1.0",
+    "tsx": "4.22.5",
+    "typescript": "5.9.3",
+    "vite": "6.4.3"
+  }
+}
