@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <title>Pixel Ecologies — WebGPU</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        /* Background layer sits at the bottom; the canvas is transparent on top.
+           The black-dot ("plain") mode reads against pure white; the
+           penguin-sprite ("wrapped") mode reads against the colour photo. */
+        #bg {
+            position: fixed;
+            inset: 0;
+            background-color: #fff;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            z-index: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        nav {
+            position: fixed;
+            z-index: 1000;
+            display: flex;
+            gap: 12px;
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        nav.views {
+            top: 0;
+            left: 0;
+            padding: 9px 12px;
+        }
+
+        nav.modes {
+            bottom: 0;
+            right: 0;
+            padding: 9px 12px;
+        }
+
+        nav a {
+            color: #000;
+            opacity: 0.3;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+            transition: opacity 0.15s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            opacity: 1;
+        }
+
+        /* Full-page Gaussian blur, toggled by "03". Sits above everything —
+           including the nav text — so the whole page blurs. pointer-events:none
+           lets clicks pass through, so the (blurred) nav stays clickable. */
+        #blur {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            pointer-events: none;
+            display: none;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        #blur.active {
+            display: block;
+        }
+
+        #unsupported {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-family: "Inter", system-ui, sans-serif;
+            font-size: 14px;
+            color: #000;
+            text-align: center;
+            padding: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bg"></div>
+    <canvas id="gfx"></canvas>
+    <div id="blur"></div>
+
+    <nav class="views">
+        <a href="#" data-view="starling" class="active">01 COMMON STARLING</a>
+        <a href="#" data-view="penguin">02 EMPEROR PENGUIN</a>
+        <a href="#" data-action="blur" id="nav-blur">03 BLUR</a>
+    </nav>
+
+    <nav class="modes">
+        <a href="#" data-mode="plain" class="active">PLAIN</a>
+        <a href="#" data-mode="wrapped">WRAPPED</a>
+    </nav>
+
+    <div id="unsupported">
+        This piece needs WebGPU.<br>Open it in Chrome, Edge, or Safari&nbsp;18+.
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

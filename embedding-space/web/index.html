@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semantic space</title>
+<style>
+  :root {
+    --ink:        rgba(235, 240, 255, 0.82);
+    --ink-dim:    rgba(235, 240, 255, 0.45);
+    --ink-faint:  rgba(235, 240, 255, 0.30);
+    --hairline:   rgba(255, 255, 255, 0.10);
+    --amber:      #ffb254;
+    --amber-soft: rgba(255, 178, 84, 0.55);
+    --font: -apple-system, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "SF Mono", "Menlo", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    background: #04060a;
+    font-family: var(--font);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+  }
+  canvas#gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; }
+  canvas#gl.dragging { cursor: grabbing; }
+  svg#overlay { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+  /* ---- wordmark ---------------------------------------------------- */
+  .mark { position: fixed; top: 28px; left: 32px; }
+  .mark h1 {
+    font-size: 15px; font-weight: 590; letter-spacing: 0.01em; color: var(--ink);
+  }
+  .mark p {
+    margin-top: 5px; font-size: 11px; font-weight: 400;
+    letter-spacing: 0.02em; color: var(--ink-dim);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- legend ------------------------------------------------------ */
+  .legend {
+    position: fixed; bottom: 26px; left: 32px;
+    display: flex; gap: 20px; font-size: 11.5px; color: var(--ink-dim);
+    letter-spacing: 0.01em;
+  }
+  .legend i {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    margin-right: 7px; vertical-align: 0.5px;
+  }
+  .legend i.human    { background: var(--amber); box-shadow: 0 0 6px var(--amber-soft); }
+  .legend i.creature { background: rgba(235, 240, 255, 0.75); box-shadow: 0 0 5px rgba(235,240,255,0.35); }
+
+  /* ---- control panel ------------------------------------------------ */
+  .panel {
+    position: fixed; top: 24px; right: 24px; width: 252px;
+    padding: 18px 18px 16px;
+    background: rgba(26, 29, 36, 0.55);
+    -webkit-backdrop-filter: blur(28px) saturate(170%);
+    backdrop-filter: blur(28px) saturate(170%);
+    border: 0.5px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55),
+                inset 0 0.5px 0 rgba(255, 255, 255, 0.08);
+  }
+  .panel h2 {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.09em; color: var(--ink-dim);
+  }
+  .rows { margin: 12px 0 16px; }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 0;
+  }
+  .row + .row { border-top: 0.5px solid var(--hairline); }
+  .row label { font-size: 13px; font-weight: 400; color: var(--ink); }
+  .field { display: flex; align-items: center; gap: 6px; }
+  .field input {
+    width: 68px; padding: 5px 8px;
+    font: 500 12.5px var(--mono); text-align: right;
+    color: var(--ink); background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.10); border-radius: 8px;
+    outline: none; transition: border-color .15s, box-shadow .15s, background .15s;
+  }
+  .field input:hover { background: rgba(255, 255, 255, 0.09); }
+  .field input:focus {
+    border-color: var(--amber-soft);
+    box-shadow: 0 0 0 3px rgba(255, 178, 84, 0.18);
+  }
+  .field .unit { font-size: 11px; color: var(--ink-faint); width: 14px; }
+
+  button#apply {
+    width: 100%; height: 34px;
+    font: 600 13px var(--font); letter-spacing: 0.01em;
+    color: #0b0d12; background: rgba(242, 246, 255, 0.94);
+    border: none; border-radius: 10px; cursor: pointer;
+    transition: transform .12s ease, background .15s;
+  }
+  button#apply:hover  { background: #ffffff; }
+  button#apply:active { transform: scale(0.975); }
+  .note {
+    margin-top: 10px; font-size: 10.5px; line-height: 1.5;
+    letter-spacing: 0.01em; color: var(--ink-faint); text-align: center;
+  }
+
+  /* ---- human label ------------------------------------------------- */
+  #humanLabel text {
+    font: 500 13px var(--font); fill: #ffd9a0; letter-spacing: 0.02em;
+  }
+  #humanLabel line   { stroke: rgba(255, 196, 120, 0.5); stroke-width: 1; }
+  #humanLabel circle { fill: none; stroke: rgba(255, 196, 120, 0.7); stroke-width: 1; }
+
+  /* ---- empty state -------------------------------------------------- */
+  .empty {
+    position: fixed; inset: 0; display: grid; place-content: center;
+    text-align: center; gap: 10px;
+  }
+  .empty h3 { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .empty p  { font-size: 12px; color: var(--ink-dim); }
+  .empty code {
+    font: 11.5px var(--mono); color: var(--ink-dim);
+    background: rgba(255,255,255,0.06); padding: 3px 8px; border-radius: 6px;
+  }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<svg id="overlay">
+  <g id="humanLabel" visibility="hidden">
+    <circle r="6"></circle>
+    <line></line>
+    <text>human</text>
+  </g>
+</svg>
+
+<header class="mark">
+  <h1>Semantic space</h1>
+  <p id="subtitle">—</p>
+</header>
+
+<footer class="legend">
+  <span><i class="dot human"></i>human appellations</span>
+  <span><i class="dot creature"></i>creatures</span>
+</footer>
+
+<aside class="panel">
+  <h2>View</h2>
+  <div class="rows">
+    <div class="row"><label for="az">Azimuth</label>
+      <div class="field"><input id="az" inputmode="decimal"><span class="unit">°</span></div></div>
+    <div class="row"><label for="el">Elevation</label>
+      <div class="field"><input id="el" inputmode="decimal"><span class="unit">°</span></div></div>
+    <div class="row"><label for="dist">Distance</label>
+      <div class="field"><input id="dist" inputmode="decimal"><span class="unit">×</span></div></div>
+    <div class="row"><label for="fov">Field of view</label>
+      <div class="field"><input id="fov" inputmode="decimal"><span class="unit">°</span></div></div>
+    <div class="row"><label for="size">Point size</label>
+      <div class="field"><input id="size" inputmode="decimal"><span class="unit">px</span></div></div>
+  </div>
+  <button id="apply">Update view</button>
+  <p class="note">Drag to orbit · scroll to zoom.<br>Renders only while interacting.</p>
+</aside>
+
+<script src="points.js"></script>
+<script>
+"use strict";
+
+/* ================= data ================= */
+const DATA = window.EMBED_SPACE;
+if (!DATA) {
+  document.querySelector(".panel").style.display = "none";
+  document.querySelector(".legend").style.display = "none";
+  const d = document.createElement("div");
+  d.className = "empty";
+  d.innerHTML = "<h3>No projection data yet</h3>" +
+    "<p>Generate it from the repo root:</p>" +
+    "<code>python3 embedding-space/pipeline/embed_project.py</code>";
+  document.body.appendChild(d);
+  throw new Error("points.js missing");
+}
+const N = DATA.kind.length;
+document.getElementById("subtitle").textContent =
+  `${N.toLocaleString()} words · ${DATA.meta.model} · ${DATA.meta.dims}d → UMAP³`;
+
+/* ================= small mat4 ================= */
+function perspective(fovDeg, aspect, near, far) {
+  const f = 1 / Math.tan((fovDeg * Math.PI) / 360);
+  const nf = 1 / (near - far);
+  return new Float32Array([
+    f / aspect, 0, 0, 0,
+    0, f, 0, 0,
+    0, 0, (far + near) * nf, -1,
+    0, 0, 2 * far * near * nf, 0,
+  ]);
+}
+function lookAt(eye, at, up) {
+  const z = norm3(sub3(eye, at));
+  const x = norm3(cross3(up, z));
+  const y = cross3(z, x);
+  return new Float32Array([
+    x[0], y[0], z[0], 0,
+    x[1], y[1], z[1], 0,
+    x[2], y[2], z[2], 0,
+    -dot3(x, eye), -dot3(y, eye), -dot3(z, eye), 1,
+  ]);
+}
+function mul4(a, b) {
+  const o = new Float32Array(16);
+  for (let c = 0; c < 4; c++)
+    for (let r = 0; r < 4; r++)
+      o[c * 4 + r] = a[r] * b[c * 4] + a[4 + r] * b[c * 4 + 1] +
+                     a[8 + r] * b[c * 4 + 2] + a[12 + r] * b[c * 4 + 3];
+  return o;
+}
+const sub3   = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+const dot3   = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+const cross3 = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+const norm3  = (a) => { const l = Math.hypot(...a) || 1; return [a[0] / l, a[1] / l, a[2] / l]; };
+
+/* ================= GL setup ================= */
+const canvas = document.getElementById("gl");
+const gl = canvas.getContext("webgl2", { antialias: true, alpha: false, powerPreference: "low-power" });
+if (!gl) { document.body.innerHTML = "<div class='empty'><h3>WebGL2 unavailable</h3></div>"; throw new Error("no webgl2"); }
+
+function compile(vs, fs) {
+  const p = gl.createProgram();
+  for (const [type, src] of [[gl.VERTEX_SHADER, vs], [gl.FRAGMENT_SHADER, fs]]) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+    gl.attachShader(p, s);
+  }
+  gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+  return p;
+}
+
+/* background: near-black radial atmosphere, dithered against banding */
+const bgProg = compile(
+`#version 300 es
+const vec2 P[3] = vec2[3](vec2(-1,-1), vec2(3,-1), vec2(-1,3));
+void main() { gl_Position = vec4(P[gl_VertexID], 0.0, 1.0); }`,
+`#version 300 es
+precision highp float;
+uniform vec2 uRes;
+out vec4 o;
+float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+void main() {
+  vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+  float d = length(uv * vec2(1.0, 1.18));
+  vec3 inner = vec3(0.026, 0.038, 0.070);
+  vec3 outer = vec3(0.007, 0.009, 0.015);
+  vec3 c = mix(inner, outer, smoothstep(0.05, 0.95, d));
+  c += (hash(gl_FragCoord.xy) - 0.5) / 255.0;
+  o = vec4(c, 1.0);
+}`);
+const uBgRes = gl.getUniformLocation(bgProg, "uRes");
+
+/* points: additive gaussian sprites */
+const ptProg = compile(
+`#version 300 es
+in vec3 aPos;
+in float aKind;
+uniform mat4 uProj, uView;
+uniform float uSize, uDpr;
+out float vKind;
+out float vDist;
+void main() {
+  vec4 mv = uView * vec4(aPos, 1.0);
+  gl_Position = uProj * mv;
+  vDist = length(mv.xyz);
+  float mult = aKind < 0.5 ? 1.0 : (aKind < 1.5 ? 1.35 : 2.6);
+  gl_PointSize = clamp(uSize * uDpr * mult * (2.8 / vDist), 1.0, 64.0);
+  vKind = aKind;
+}`,
+`#version 300 es
+precision mediump float;
+in float vKind;
+in float vDist;
+uniform float uAlpha;
+out vec4 o;
+void main() {
+  vec2 q = gl_PointCoord * 2.0 - 1.0;
+  float d2 = dot(q, q);
+  if (d2 > 1.0) discard;
+  float g = exp(-3.2 * d2) * smoothstep(1.0, 0.6, d2);
+  float depth = mix(0.55, 1.0, clamp((5.6 - vDist) / 3.2, 0.0, 1.0));
+  vec3 col; float amp;
+  if (vKind < 0.5)      { col = vec3(0.82, 0.87, 1.00); amp = 0.62; }
+  else if (vKind < 1.5) { col = vec3(1.00, 0.68, 0.28); amp = 0.88; }
+  else { col = mix(vec3(1.00, 0.76, 0.40), vec3(1.0), exp(-6.0 * d2)); amp = 1.6; }
+  o = vec4(col * (g * amp * depth * uAlpha), 1.0);
+}`);
+const U = {
+  proj:  gl.getUniformLocation(ptProg, "uProj"),
+  view:  gl.getUniformLocation(ptProg, "uView"),
+  size:  gl.getUniformLocation(ptProg, "uSize"),
+  dpr:   gl.getUniformLocation(ptProg, "uDpr"),
+  alpha: gl.getUniformLocation(ptProg, "uAlpha"),
+};
+
+const kinds = new Float32Array(DATA.kind);
+kinds[DATA.humanIndex] = 2; // the one labeled point
+const positions = new Float32Array(DATA.pos);
+
+const vao = gl.createVertexArray();
+gl.bindVertexArray(vao);
+for (const [loc, data, sizeN] of [
+  [gl.getAttribLocation(ptProg, "aPos"), positions, 3],
+  [gl.getAttribLocation(ptProg, "aKind"), kinds, 1],
+]) {
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, sizeN, gl.FLOAT, false, 0, 0);
+}
+
+/* ================= camera & render ================= */
+const DEFAULTS = { az: 35, el: 18, dist: 4.8, fov: 32, size: 3.8 };
+const LIMITS = { az: [-1e6, 1e6], el: [-89, 89], dist: [0.8, 12], fov: [15, 90], size: [0.5, 10] };
+let view = { ...DEFAULTS };
+const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+function eyeOf(v) {
+  const az = (v.az * Math.PI) / 180, el = (v.el * Math.PI) / 180;
+  return [
+    v.dist * Math.cos(el) * Math.cos(az),
+    v.dist * Math.sin(el),
+    v.dist * Math.cos(el) * Math.sin(az),
+  ];
+}
+
+const humanPos = [
+  positions[DATA.humanIndex * 3],
+  positions[DATA.humanIndex * 3 + 1],
+  positions[DATA.humanIndex * 3 + 2],
+];
+const labelG = document.getElementById("humanLabel");
+
+function placeLabel(pv) {
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  const cx = pv[0] * humanPos[0] + pv[4] * humanPos[1] + pv[8]  * humanPos[2] + pv[12];
+  const cy = pv[1] * humanPos[0] + pv[5] * humanPos[1] + pv[9]  * humanPos[2] + pv[13];
+  const cw = pv[3] * humanPos[0] + pv[7] * humanPos[1] + pv[11] * humanPos[2] + pv[15];
+  if (cw <= 0) { labelG.setAttribute("visibility", "hidden"); return; }
+  const x = ((cx / cw) * 0.5 + 0.5) * w;
+  const y = (1 - ((cy / cw) * 0.5 + 0.5)) * h;
+  const tx = x + 46, ty = y - 34;
+  labelG.setAttribute("visibility", "visible");
+  labelG.querySelector("circle").setAttribute("cx", x);
+  labelG.querySelector("circle").setAttribute("cy", y);
+  const line = labelG.querySelector("line");
+  line.setAttribute("x1", x + 5.2); line.setAttribute("y1", y - 4.2);
+  line.setAttribute("x2", tx - 4);  line.setAttribute("y2", ty + 4);
+  const text = labelG.querySelector("text");
+  text.setAttribute("x", tx); text.setAttribute("y", ty);
+}
+
+function render(v, alpha = 1) {
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.disable(gl.BLEND);
+  gl.useProgram(bgProg);
+  gl.uniform2f(uBgRes, canvas.width, canvas.height);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+  const proj = perspective(v.fov, w / h, 0.05, 60);
+  const viewM = lookAt(eyeOf(v), [0, 0, 0], [0, 1, 0]);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE, gl.ONE);
+  gl.useProgram(ptProg);
+  gl.uniformMatrix4fv(U.proj, false, proj);
+  gl.uniformMatrix4fv(U.view, false, viewM);
+  // keep apparent density resolution-independent: scale points with viewport height
+  gl.uniform1f(U.size, v.size * Math.max(0.8, h / 900));
+  gl.uniform1f(U.dpr, dpr);
+  gl.uniform1f(U.alpha, alpha);
+  gl.bindVertexArray(vao);
+  gl.drawArrays(gl.POINTS, 0, N);
+
+  placeLabel(mul4(proj, viewM));
+}
+
+/* finite eased transition between views; rAF runs only while animating.
+   A new call supersedes a running one, taking over from the current view. */
+const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+let transId = 0;
+function transitionTo(target, ms = 800, fadeIn = false) {
+  const id = ++transId;
+  const from = { ...view };
+  // unwrap azimuth to the shortest path
+  let dAz = ((target.az - from.az) % 360 + 540) % 360 - 180;
+  const t0 = performance.now();
+  (function frame(now) {
+    if (id !== transId) return;
+    const t = Math.min((now - t0) / ms, 1), e = ease(t);
+    view = {
+      az: from.az + dAz * e,
+      el: from.el + (target.el - from.el) * e,
+      dist: Math.exp(Math.log(from.dist) + (Math.log(target.dist) - Math.log(from.dist)) * e),
+      fov: from.fov + (target.fov - from.fov) * e,
+      size: from.size + (target.size - from.size) * e,
+    };
+    render(view, fadeIn ? e : 1);
+    if (t < 1) requestAnimationFrame(frame);
+    else { view = { ...target, az: ((target.az % 360) + 360) % 360 }; render(view); }
+  })(t0);
+}
+
+/* ================= panel ================= */
+const inputs = Object.fromEntries(["az", "el", "dist", "fov", "size"].map((k) => [k, document.getElementById(k)]));
+function syncInputs() {
+  for (const k in inputs) inputs[k].value = (+view[k].toFixed(1)).toString();
+}
+function readInputs() {
+  const v = {};
+  for (const k in inputs) {
+    const raw = parseFloat(inputs[k].value);
+    const fallback = view[k];
+    const n = Number.isFinite(raw) ? raw : fallback;
+    v[k] = Math.min(Math.max(n, LIMITS[k][0]), LIMITS[k][1]);
+  }
+  return v;
+}
+function apply() {
+  const target = readInputs();
+  for (const k in inputs) inputs[k].value = (+target[k].toFixed(1)).toString();
+  transitionTo(target);
+}
+document.getElementById("apply").addEventListener("click", apply);
+document.querySelector(".panel").addEventListener("keydown", (e) => { if (e.key === "Enter") apply(); });
+
+/* ================= direct orbit ================= */
+/* render-on-demand: one rAF-coalesced frame per input event, idle otherwise */
+let raf = 0;
+function requestRender() {
+  if (!raf) raf = requestAnimationFrame(() => { raf = 0; render(view); });
+}
+const clampTo = (k, x) => Math.min(Math.max(x, LIMITS[k][0]), LIMITS[k][1]);
+let drag = null;
+canvas.addEventListener("pointerdown", (e) => {
+  if (e.button !== 0) return;
+  transId++; // take over from any running transition
+  drag = { x: e.clientX, y: e.clientY };
+  canvas.classList.add("dragging");
+  try { canvas.setPointerCapture(e.pointerId); } catch {}
+});
+canvas.addEventListener("pointermove", (e) => {
+  if (!drag) return;
+  view.az = view.az - (e.clientX - drag.x) * 0.25;
+  view.el = clampTo("el", view.el + (e.clientY - drag.y) * 0.25);
+  drag = { x: e.clientX, y: e.clientY };
+  syncInputs();
+  requestRender();
+});
+const endDrag = () => {
+  drag = null;
+  canvas.classList.remove("dragging");
+  view.az = ((view.az % 360) + 360) % 360;
+  syncInputs();
+};
+canvas.addEventListener("pointerup", endDrag);
+canvas.addEventListener("pointercancel", endDrag);
+canvas.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  transId++;
+  view.dist = clampTo("dist", view.dist * Math.exp(e.deltaY * 0.0012));
+  syncInputs();
+  requestRender();
+}, { passive: false });
+
+/* ================= boot & resize ================= */
+function fit() {
+  canvas.width = Math.round(canvas.clientWidth * dpr);
+  canvas.height = Math.round(canvas.clientHeight * dpr);
+}
+window.addEventListener("resize", () => { fit(); render(view); });
+
+fit();
+syncInputs();
+// settle-in: one finite fade from slightly farther out, then fully idle
+view = { ...DEFAULTS, dist: DEFAULTS.dist * 1.18 };
+transitionTo(DEFAULTS, 1100, true);
+</script>
+</body>
+</html>

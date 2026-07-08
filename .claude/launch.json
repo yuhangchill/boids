@@ -1,0 +1,24 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "starling-webgpu",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "exec python3 -m http.server \"$PORT\" --directory starling-webgpu"],
+      "port": 5178,
+      "autoPort": true
+    },
+    {
+      "name": "embedding-space",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8360", "--directory", "embedding-space/web"],
+      "port": 8360
+    },
+    {
+      "name": "projector",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["projector/server.py", "8420"],
+      "port": 8420
+    }
+  ]
+}

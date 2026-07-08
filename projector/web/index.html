@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Axis Projector — beloved → reviled</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<canvas id="gl"></canvas>
+<canvas id="overlay"></canvas>
+
+<header id="topbar">
+  <div class="wordmark">Axis<em>·</em>Projector</div>
+  <div class="stats">
+    <b id="stat-points">—</b> points · <b>256</b> d ·
+    text-embedding-3-small · UMAP 3D
+  </div>
+  <div id="stat-selected"></div>
+</header>
+
+<aside id="layers" class="panel">
+  <h2>Layers</h2>
+  <div class="layer-row" data-layer="colors" data-on>
+    <span class="name"><span class="swatch" style="--sw:#e77fae"></span>Quintile colours</span>
+    <span class="switch"></span>
+  </div>
+  <div class="layer-row" data-layer="gates" data-on>
+    <span class="name"><span class="swatch" style="--sw:#8d96aa"></span>Gates I–V</span>
+    <span class="switch"></span>
+  </div>
+  <div class="layer-row" data-layer="axis" data-on>
+    <span class="name"><span class="swatch" style="--sw:#ffc366"></span>Beloved→reviled axis</span>
+    <span class="switch"></span>
+  </div>
+  <div class="layer-row" data-layer="group">
+    <span class="name"><span class="swatch" style="--sw:#7ce8c3"></span>Group-living only</span>
+    <span class="switch"></span>
+  </div>
+  <div class="layer-row" data-layer="labels" data-on>
+    <span class="name"><span class="swatch" style="--sw:#e9edf5"></span>Curated labels</span>
+    <span class="switch"></span>
+  </div>
+  <div class="layer-row" data-layer="humans" data-on>
+    <span class="name"><span class="swatch" style="--sw:#b98d5a"></span>Human appellations</span>
+    <span class="switch"></span>
+  </div>
+
+  <div class="legend">
+    <div class="bar"></div>
+    <div class="caps"><span>beloved</span><span>reviled</span></div>
+    <div class="note">
+      The axis is the centroid difference of <b>12 + 12</b> affection
+      anchors in the original 256-d space; the five gates are equal-count
+      quintiles of the 3,000 creatures, ringed at their median score.
+    </div>
+  </div>
+</aside>
+
+<aside id="inspector" class="panel">
+  <h2>Words</h2>
+  <div class="search-wrap">
+    <input id="search" type="text" placeholder="Search 5,000 words — regex welcome" spellcheck="false" autocomplete="off" />
+    <div id="search-results"></div>
+  </div>
+
+  <div id="sel-empty">
+    Click a point — or search — to inspect a word.<br />
+    Then extend it: <b style="font-family:var(--mono)">bird + boids + behavior</b>
+    steers the neighborhood by vector arithmetic.
+  </div>
+
+  <div id="sel-card">
+    <div class="sel-head">
+      <span id="sel-word"></span>
+      <span id="sel-kind"></span>
+      <button id="sel-clear" title="clear selection (esc)">✕</button>
+    </div>
+    <div class="sel-meta">
+      <span class="qchip" id="sel-quintile"></span>
+      <span id="sel-scores"></span>
+    </div>
+
+    <div class="formula">
+      <div class="chips" id="chips">
+        <input id="term-input" type="text" placeholder="+ add a word…" spellcheck="false" autocomplete="off" />
+      </div>
+      <div class="err" id="term-err"></div>
+    </div>
+
+    <div class="controls">
+      <div class="ctl-row">
+        <label>Neighbors</label>
+        <input id="knn" type="range" min="5" max="100" step="1" value="50" />
+        <output id="knn-out">50</output>
+      </div>
+      <div class="ctl-row">
+        <label>Distance</label>
+        <div class="seg" id="metric">
+          <button data-m="cosine" class="on">COSINE</button>
+          <button data-m="euclidean">EUCLIDEAN</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="nn-head">Nearest in original space <b id="nn-query"></b></div>
+    <div id="nn-list"></div>
+  </div>
+</aside>
+
+<div id="hint">drag to orbit · scroll to zoom · ⇧ drag to pan · click a point to select</div>
+
+<div id="loading">
+  <div class="mark">Axis<em>·</em>Projector</div>
+  <div class="track"><div class="fill" id="load-fill"></div></div>
+  <div class="sub" id="load-sub">fetching vectors…</div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

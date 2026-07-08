@@ -1,0 +1,3 @@
+# derived artifacts and API caches — rebuild with pipeline/precompute.py
+web/data/
+data/
